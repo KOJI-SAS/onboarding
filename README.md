@@ -16,6 +16,9 @@ La majeure partie des projets sur lesquels on travaille fonctionne soit avec PHP
 
 ### Conseiller
 
+- [iTerm2](https://www.iterm2.com/index.html)
+- [Oh My ZSH](https://ohmyz.sh/)
+- [agnoster.zsh-theme](https://github.com/agnoster/agnoster-zsh-theme)
 - [Visual Studio Code](https://code.visualstudio.com/Download)
 - [Vue.js Extension Pack](https://marketplace.visualstudio.com/items?itemName=mubaidr.vuejs-extension-pack)
 - [Beautify](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify)
