@@ -49,7 +49,7 @@ docker run -p 9000:9000 --name minio -d --env MINIO_ACCESS_KEY=root --env MINIO_
 cd ~/Documents/Containers
 mkdir mariadb
 cd mariadb
-docker run -p 3306:3306 --name mariadb-dqzdq -d --env MYSQL_ROOT_PASSWORD=root --env MYSQL_DATABASE=database --mount type=bind,src="$(pwd)",target=/var/lib/mysql mariadb
+docker run -p 3306:3306 --name mariadb -d --env MYSQL_ROOT_PASSWORD=root --env MYSQL_DATABASE=database --mount type=bind,src="$(pwd)",target=/var/lib/mysql mariadb
 ```
 
 MongoDB ( NoSQL )
@@ -58,5 +58,5 @@ MongoDB ( NoSQL )
 cd ~/Documents/Containers
 mkdir mongodb
 cd mongodb
-docker run -p 27017-27019:27017-27019 --name mongodb-dqzdqzd -d --env MONGO_INITDB_ROOT_USERNAME=root --env MONGO_INITDB_ROOT_PASSWORD=root --mount type=bind,src="$(pwd)",target=/data/db mongo
+docker run -p 27017-27019:27017-27019 --name mongodb -d --env MONGO_INITDB_ROOT_USERNAME=root --env MONGO_INITDB_ROOT_PASSWORD=root --mount type=bind,src="$(pwd)",target=/data/db mongo
 ```
