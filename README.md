@@ -4,6 +4,22 @@ Bienvenue chez KOJI, pour commencer cette incroyable aventure tu auras besoin de
 
 La majeure partie des projets sur lesquels on travaille fonctionne soit avec PHP soit avec NodeJS.
 
+## Environment Koji
+
+### Nécessaire
+
+- [Chrome](https://www.google.com/intl/fr_fr/chrome/)
+- [Firefox](https://www.mozilla.org/fr/firefox/new/)
+- [ClickUp](https://clickup.com/)
+- [Slack](https://slack.com/intl/fr-fr/)
+- [Skype](https://www.skype.com/fr/)
+- [Office](https://www.office.com/)
+- [TeamViewer](https://www.teamviewer.com/fr/)
+
+### Conseiller
+
+- [Spectacle](https://www.spectacleapp.com/)
+
 ## Environment Javascript
 
 ### Nécessaire
@@ -26,22 +42,6 @@ La majeure partie des projets sur lesquels on travaille fonctionne soit avec PHP
 - [Beautify](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify)
 - [Babel JavaScript](https://marketplace.visualstudio.com/items?itemName=mgmcdermott.vscode-language-babel)
 - [DotENV](https://marketplace.visualstudio.com/items?itemName=mikestead.dotenv)
-
-## Environment Koji
-
-### Nécessaire
-
-- [Chrome](https://www.google.com/intl/fr_fr/chrome/)
-- [Firefox](https://www.mozilla.org/fr/firefox/new/)
-- [ClickUp](https://clickup.com/)
-- [Slack](https://slack.com/intl/fr-fr/)
-- [Skype](https://www.skype.com/fr/)
-- [Office](https://www.office.com/)
-- [TeamViewer](https://www.teamviewer.com/fr/)
-
-### Conseiller
-
-- [Spectacle](https://www.spectacleapp.com/)
 
 ## Docker Containers
 
