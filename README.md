@@ -54,6 +54,8 @@ mkdir Containers
 
 ### Minio ( Fake S3 Bucket  Server )
 
+> Not used for the moment. Need to update the command, `access_key` passing method has changed
+
 ```bash
 cd ~/Documents/Containers
 mkdir minio
