@@ -1,11 +1,11 @@
 # Base script: https://gist.github.com/bradp/bea76b16d3325f5c47d4
 
-echo "Creating an SSH key for you..."
-ssh-keygen -t rsa
+# echo "Creating an SSH key for you..."
+# ssh-keygen -t rsa
 
-echo "Please add this public key to Github \n"
-echo "https://github.com/account/ssh \n"
-read -p "Press [Enter] key after this..."
+# echo "Please add this public key to Github \n"
+# echo "https://github.com/account/ssh \n"
+# read -p "Press [Enter] key after this..."
 
 echo "Installing xcode-stuff"
 xcode-select --install
@@ -48,7 +48,10 @@ brew install wget
 brew install trash
 brew install svn
 brew install node
+brew install nvm
+curl -o- -L https://yarnpkg.com/install.sh | bash
 
+mkdir ~/.nvm
 
 #@TODO install our custom fonts and stuff
 
@@ -79,14 +82,14 @@ git clone git://github.com/zsh-users/zsh-syntax-highlighting.git
 echo "Setting ZSH as shell..."
 chsh -s /bin/zsh
 
+brew tap homebrew/cask-drivers
+
 # Apps
 apps=(
-  cleanmymac
   diffmerge
   firefox
   google-chrome
   licecap
-  mou
   private-internet-access
   razer-synapse
   sourcetree
@@ -100,7 +103,7 @@ apps=(
   transmission
   zoomus
   sequel-pro
-  chromecast
+  mkchromecast
   qlmarkdown
   qlstephen
   suspicious-package
