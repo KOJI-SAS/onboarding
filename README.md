@@ -30,7 +30,7 @@ La majeure partie des projets sur lesquels on travaille fonctionne soit avec PHP
 - [Docker](https://docs.docker.com/docker-for-mac/install/)
 - [Vue CLI](https://cli.vuejs.org/guide/installation.html)
 
-### Conseiller
+### Recommandé
 
 - [iTerm2](https://www.iterm2.com/index.html)
 - [SequelPro](https://www.sequelpro.com/)
