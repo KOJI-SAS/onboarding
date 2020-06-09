@@ -16,7 +16,7 @@ La majeure partie des projets sur lesquels on travaille fonctionne soit avec PHP
 - [Office](https://www.office.com/)
 - [TeamViewer](https://www.teamviewer.com/fr/)
 
-### Conseiller
+### Recommandé
 
 - [Spectacle](https://www.spectacleapp.com/)
 
