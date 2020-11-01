@@ -45,10 +45,11 @@ La majeure partie des projets sur lesquels on travaille fonctionne soit avec PHP
 
 ## VSCode Configuration
 
-You should use [Settings Sync](https://marketplace.visualstudio.com/items?itemName=Shan.code-settings-sync) visual studio code extension.
+You will need [Settings Sync](https://marketplace.visualstudio.com/items?itemName=Shan.code-settings-sync) visual studio code extension to synchronize your configuration with the default one.
 
 After installing you should use the following command: `Sync: Advanced Options > Download Settings from public Gist` and enter `a90dc89436151831fd1bf8629080ade3` as Gist id.
 
+From now you can install another theme of your choice if you don't like the provided one.
 
 ## Docker Containers
 
