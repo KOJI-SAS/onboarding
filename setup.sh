@@ -82,16 +82,12 @@ git clone git://github.com/zsh-users/zsh-syntax-highlighting.git
 echo "Setting ZSH as shell..."
 chsh -s /bin/zsh
 
-brew tap homebrew/cask-drivers
-
 # Apps
 apps=(
   diffmerge
   firefox
   google-chrome
-  licecap
   private-internet-access
-  razer-synapse
   sourcetree
   steam
   spotify
@@ -103,9 +99,6 @@ apps=(
   transmission
   zoomus
   sequel-pro
-  mkchromecast
-  qlmarkdown
-  qlstephen
   suspicious-package
   gitkraken
   visual-studio-code
