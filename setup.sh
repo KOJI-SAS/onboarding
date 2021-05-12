@@ -82,33 +82,6 @@ git clone git://github.com/zsh-users/zsh-syntax-highlighting.git
 echo "Setting ZSH as shell..."
 chsh -s /bin/zsh
 
-# Apps
-apps=(
-  diffmerge
-  firefox
-  google-chrome
-  private-internet-access
-  sourcetree
-  steam
-  spotify
-  vagrant
-  iterm2
-  textexpander
-  vlc
-  skype
-  transmission
-  zoomus
-  sequel-pro
-  suspicious-package
-  gitkraken
-  visual-studio-code
-)
-
-# Install apps to /Applications
-# Default is: /Users/$user/Applications
-echo "installing apps with Cask..."
-brew cask install --appdir="/Applications" ${apps[@]}
-
 # brew cask cleanup // DEPRECATED
 brew cleanup
 
