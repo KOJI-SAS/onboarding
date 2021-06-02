@@ -53,13 +53,15 @@ mkdir ~/.nvm
 echo "Cleaning up brew"
 brew cleanup
 
-echo "Download AutoPkg"
+echo "Download and install Munkin"
+
+curl -s https://api.github.com/repos/munki/munki/releases/latest | grep browser_download_url | cut -d : -f 2,3 | tr -d \" | wget -O munki.pkg -i -
+sudo installer -pkg munki.pkg -target /Applications
+
+echo "Download and install AutoPkg"
 
 curl -s https://api.github.com/repos/autopkg/autopkg/releases/latest | grep browser_download_url | cut -d : -f 2,3 | tr -d \" | wget -O autopkg.pkg -i -
-
-echo "Installing AutoPkg"
-
-installer -pkg autopkg.pkg -target /Applications
+sudo installer -pkg autopkg.pkg -target /Applications
 
 echo "Grunting it up"
 npm install -g grunt-cli
