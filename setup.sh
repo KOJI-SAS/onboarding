@@ -5,18 +5,13 @@ echo "Please add this public key to Github \n"
 echo "https://github.com/account/ssh \n"
 read -p "Press [Enter] key after this..."
 
+echo "Installing xcode-stuff"
+xcode-select --install
+echo "A popup could appear, confirm and wait the installation to be done \n"
+read -p "Press [Enter] key after this..."
 
-if test ! $(which git); then
-  echo "Installing xcode-stuff"
-  xcode-select --install
-  echo "A popup will appear, confirm and wait the installation to be done \n"
-  read -p "Press [Enter] key after this..."
-fi
-
-if test ! $(which brew); then
-  echo "Installing homebrew..."
-  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-fi
+echo "Installing homebrew..."
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 echo "Updating homebrew..."
 brew update
