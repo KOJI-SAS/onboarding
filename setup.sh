@@ -1,5 +1,3 @@
-# Base script: https://gist.github.com/bradp/bea76b16d3325f5c47d4
-
 echo "Creating an SSH key for you..."
 ssh-keygen -t rsa
 
@@ -7,28 +5,30 @@ echo "Please add this public key to Github \n"
 echo "https://github.com/account/ssh \n"
 read -p "Press [Enter] key after this..."
 
-echo "Installing xcode-stuff"
-xcode-select --install
 
-# Check for Homebrew,
-# Install if we don't have it
-if test ! $(which brew); then
-  echo "Installing homebrew..."
-  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+if test ! $(which git); then
+  echo "Installing xcode-stuff"
+  xcode-select --install
+  echo "A popup will appear, confirm and wait the installation to be done \n"
+  read -p "Press [Enter] key after this..."
 fi
 
-# Update homebrew recipes
+if test ! $(which brew); then
+  echo "Installing homebrew..."
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+fi
+
 echo "Updating homebrew..."
 brew update
 
 # Check for Git,
 # Install if we don't have it
-if test ! $(which brew); then
+if test ! $(which git); then
     echo "Installing Git..."
     brew install git
 fi
 
-echo "Git config"
+echo "Git config:"
 
 read -p "Git Full Name:" git_name
 git config --global user.name "$git_name"
@@ -58,15 +58,13 @@ mkdir ~/.nvm
 echo "Cleaning up brew"
 brew cleanup
 
-echo "Installing homebrew cask"
-brew install caskroom/cask/brew-cask
+echo "Download AutoPkg"
 
-# Do be completed
-# echo "Copying dotfiles from Github"
-# cd ~
-# git clone git@github.com:bradp/dotfiles.git .dotfiles
-# cd .dotfiles
-# sh symdotfiles
+curl -s https://api.github.com/repos/autopkg/autopkg/releases/latest | grep browser_download_url | cut -d : -f 2,3 | tr -d \" | wget -O autopkg.pkg -i -
+
+echo "Installing AutoPkg"
+
+installer -pkg autopkg.pkg -target /Applications
 
 echo "Grunting it up"
 npm install -g grunt-cli
