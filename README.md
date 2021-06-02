@@ -1,74 +1,45 @@
 # On Boarding
 
-Bienvenue chez KOJI, pour commencer cette incroyable aventure tu auras besoin de certains outils.
+Welcome at KOJI.
 
-La majeure partie des projets sur lesquels on travaille fonctionne soit avec PHP soit avec NodeJS.
+For your first day, you will have to install your Mac. You can following the instructions bellow:
 
-## Environment Koji
+- Download this repository as a zip file
+- Extract the file to your desktop
+- Open the "Terminal" application
+- Drag and drop the extracted folder in the Terminal app
+- Press enter to open the directory in the terminal
+- Execute the following command: `sh setup.sh`
 
-### Nécessaire
-
-- [Chrome](https://www.google.com/intl/fr_fr/chrome/)
-- [Firefox](https://www.mozilla.org/fr/firefox/new/)
-- [ClickUp](https://clickup.com/)
-- [Slack](https://slack.com/intl/fr-fr/)
-- [Skype](https://www.skype.com/fr/)
-- [Office](https://www.office.com/)
-- [TeamViewer](https://www.teamviewer.com/fr/)
-
-### Recommandé
-
-- [Spectacle](https://www.spectacleapp.com/)
-
-## Environment Javascript
-
-### Nécessaire
-
-- [Node.JS LTS](https://nodejs.org/en/download/)
-- [Yarn ( Modern Package Manager )](https://yarnpkg.com/en/docs/install#mac-stable)
-- [NVM ( Node Version Manager )](https://github.com/nvm-sh/nvm#install--update-script)
-- [Docker](https://docs.docker.com/docker-for-mac/install/)
-- [Vue CLI](https://cli.vuejs.org/guide/installation.html)
-
-### Recommandé
-
-- [iTerm2](https://www.iterm2.com/index.html)
-- [SequelPro](https://www.sequelpro.com/)
-- [MongoDB Compass Community](https://www.mongodb.com/download-center/compass)
-- [Oh My ZSH](https://ohmyz.sh/)
-- [agnoster.zsh-theme](https://github.com/agnoster/agnoster-zsh-theme)
-- [Visual Studio Code](https://code.visualstudio.com/Download)
-- [Vue.js Extension Pack](https://marketplace.visualstudio.com/items?itemName=mubaidr.vuejs-extension-pack)
-- [Beautify](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify)
-- [Babel JavaScript](https://marketplace.visualstudio.com/items?itemName=mgmcdermott.vscode-language-babel)
-- [DotENV](https://marketplace.visualstudio.com/items?itemName=mikestead.dotenv)
+This installation could take a while. At some points you will be required to enter your password. Don't forget to plug your macbook, you don't want this script to fail because your mac goes out of battery.
 
 ## VSCode Configuration
 
-You will need [Settings Sync](https://marketplace.visualstudio.com/items?itemName=Shan.code-settings-sync) visual studio code extension to synchronize your configuration with the default one.
+To have a consistent programming environment we provide a default configuration for VSCode, you must use this configuration at first. But you can modify it afterwards if you want to change something.
 
-After installing you should use the following command: `Sync: Advanced Options > Download Settings from public Gist` and enter `a90dc89436151831fd1bf8629080ade3` as Gist id.
+You will need the [Settings Sync](https://marketplace.visualstudio.com/items?itemName=Shan.code-settings-sync) extension to synchronize your configuration with the default one.
 
-From now you can install another theme of your choice if you don't like the provided one.
+After installing the extenson you should use the following command: `Sync: Advanced Options > Ouvrir les paramètres` and enter `a90dc89436151831fd1bf8629080ade3` in the Gist id field. When it's done you can use `Sync: Download Settings`.
+
+If everything goes fine, you will see a debug window opening. Wait for the completion message. The installation could take a while, but if you see some error this might be because one of the extension we use has been removed from the store. Ask your manager to check that with you.
+
+> Reminder: To use a command in VSCode the shortcut is `Cmd+Shift+P`
+
+From now you're free to use any theme or extension you want if it's not conflicting with our code convention and guidelines. If you're not sure about what can break the configuration, ask your manager.
 
 ## Docker Containers
 
-### Base
+This are the containers we use all the times. In the future each project will have its own docker compose, but for the moment it's easier to have one container for all.
 
-```bash
-cd ~/Documents
-mkdir Containers
-```
+> If your a project manager you're not required to follow these instructions
 
 ### Minio ( Fake S3 Bucket  Server )
-
-> Not used for the moment. Need to update the command, `access_key` passing method has changed
 
 ```bash
 cd ~/Documents/Containers
 mkdir minio
 cd minio
-docker run -p 9000:9000 --name minio -d --env MINIO_ACCESS_KEY=root --env MINIO_SECRET_KEY=root --mount type=bind,src="$(pwd)",target=/data minio/minio server /data
+docker run -p 9000:9000 --name minio -d -e "MINIO_ACCESS_KEY=AZERTYUIOP" -e "MINIO_SECRET_KEY=AZERTYUIOP" --mount type=bind,src="$(pwd)",target=/data minio/minio server /data
 ```
 
 ### MariaDB ( SQL )
@@ -78,6 +49,15 @@ cd ~/Documents/Containers
 mkdir mariadb
 cd mariadb
 docker run -p 3306:3306 --name mariadb -d --env MYSQL_ROOT_PASSWORD=root --env MYSQL_DATABASE=database --mount type=bind,src="$(pwd)",target=/var/lib/mysql mariadb
+```
+
+### Postgres ( SQL )
+
+```bash
+cd ~/Documents/Containers
+mkdir mariadb
+cd mariadb
+docker run -p 5432:5432 --name postgres -d --env MYSQL_ROOTPOSTGRES_PASSWORD_PASSWORD=root --env MYSQL_DATABASE=database --mount type=bind,src="$(pwd)",target=/var/lib/mysql postgres
 ```
 
 ### MongoDB ( NoSQL )

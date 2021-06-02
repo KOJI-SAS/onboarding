@@ -41,43 +41,41 @@ echo "Installing other brew stuff..."
 brew install tree
 brew install wget
 brew install trash
-brew install svn
 brew install node
 brew install nvm
+brew install php@7.4
 curl -o- -L https://yarnpkg.com/install.sh | bash
 
-mkdir ~/.nvm
+mkdir -p ~/.nvm
 
-#@TODO install our custom fonts and stuff
+echo "Installing composer"
+
+wget https://raw.githubusercontent.com/composer/getcomposer.org/76a7060ccb93902cd7576b67264ad91c8a2700e2/web/installer -O - -q | php -- --quiet
 
 echo "Cleaning up brew"
 brew cleanup
 
 echo "Setup documents"
 
-mkdir -p ~/Documents/KOJI
-mkdir -p ~/Documents/KOJI/Projects
+mkdir -p ~/Documents/Koji
+mkdir -p ~/Documents/Koji/Projects
 mkdir -p ~/Documents/Binaries
 mkdir -p ~/Documents/Softwares
-mkdir -p ~/Documents/Softwares/Munkin
 mkdir -p ~/Documents/Personal
 
-echo "Download and install Munkin"
+echo "Install Razer Driver"
 
-curl -s https://api.github.com/repos/munki/munki/releases/latest | grep browser_download_url | cut -d : -f 2,3 | tr -d \" | wget -O munki.pkg -i -
-sudo installer -pkg munki.pkg -target /Applications
+curl -s https://api.github.com/repos/1kc/razer-macos/releases/latest | grep browser_download_url | cut -d : -f 2,3 | tr -d \" | wget -O razer.dmg -i -
+hdiutil mount razer.pkg
+cp -R /Volumes/Razer\ macOS\ 0.4.2/Razer\ macOS.app /Applications/
 
-echo "Download and install AutoPkg"
+echo "Install Development Apps"
 
-curl -s https://api.github.com/repos/autopkg/autopkg/releases/latest | grep browser_download_url | cut -d : -f 2,3 | tr -d \" | wget -O autopkg.pkg -i -
-sudo installer -pkg autopkg.pkg -target /Applications
+brew install visual-studio-code gitkraken postman tableplus iterm cyberduck sequel-pro the-unarchiver docker
 
-defaults write com.github.autopkg MUNKI_REPO $HOME/Documents/Softwares/Munkin
+echo "Install Global Apps"
 
-autopkg repo-add recipes
-
-echo "Grunting it up"
-npm install -g grunt-cli
+brew install firefox chrome spotify miro microsoft-teams slack skype clickup audacity slite transmission microsoft-office teamviewer rectangle
 
 #Install Zsh & Oh My Zsh
 echo "Installing Oh My ZSH..."
@@ -90,10 +88,20 @@ git clone git://github.com/zsh-users/zsh-syntax-highlighting.git
 echo "Setting ZSH as shell..."
 chsh -s /bin/zsh
 
-# brew cask cleanup // DEPRECATED
+echo "Configure iTerm"
+
+cp ./templates/.zshrc ~/.zshrc
+mkdir -p "~/Library/Application\ Support/iTerm2/DynamicProfiles"
+cp ./templates/iTerm/Profiles.json ~/Library/Application\ Support/iTerm2/DynamicProfiles
+
 brew cleanup
 
 echo "Setting some Mac settings..."
+
+brew install dockutil
+dockutil --remove all
+
+cp templates/French-backtick.bundle /Library/Keyboard\ Layouts
 
 #"Disabling system-wide resume"
 defaults write NSGlobalDomain NSQuitAlwaysKeepsWindows -bool false
@@ -251,9 +259,6 @@ defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
 # Don’t automatically rearrange Spaces based on most recent use
 defaults write com.apple.dock mru-spaces -bool false
 
-
-
 killall Finder
 
-
-echo "Welcome at Koji!"
+echo "Installation complete."
