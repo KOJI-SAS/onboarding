@@ -66,24 +66,23 @@ mkdir -p ~/Documents/Personal
 echo "Install Razer Driver"
 
 curl -s https://api.github.com/repos/1kc/razer-macos/releases/latest | grep browser_download_url | cut -d : -f 2,3 | tr -d \" | wget -O razer.dmg -i -
-hdiutil mount razer.pkg
+hdiutil mount razer.dmg
 cp -R /Volumes/Razer\ macOS\ 0.4.2/Razer\ macOS.app /Applications/
 
 echo "Install Development Apps"
 
-brew install visual-studio-code gitkraken postman tableplus iterm cyberduck sequel-pro the-unarchiver docker
+brew install visual-studio-code gitkraken postman tableplus iterm2 cyberduck sequel-pro the-unarchiver docker virtualbox vagrant
 
 echo "Install Global Apps"
 
-brew install firefox chrome spotify miro microsoft-teams slack skype clickup audacity slite transmission microsoft-office teamviewer rectangle
+brew install firefox google-chrome spotify miro microsoft-teams slack skype clickup audacity slite transmission microsoft-office teamviewer rectangle
 
 #Install Zsh & Oh My Zsh
 echo "Installing Oh My ZSH..."
 curl -L http://install.ohmyz.sh | sh
 
 echo "Setting up Zsh plugins..."
-cd ~/.oh-my-zsh/custom/plugins
-git clone git://github.com/zsh-users/zsh-syntax-highlighting.git
+git clone git://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
 
 echo "Setting ZSH as shell..."
 chsh -s /bin/zsh
