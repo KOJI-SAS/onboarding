@@ -52,9 +52,6 @@ echo "Installing composer"
 
 wget https://raw.githubusercontent.com/composer/getcomposer.org/76a7060ccb93902cd7576b67264ad91c8a2700e2/web/installer -O - -q | php -- --quiet
 
-echo "Cleaning up brew"
-brew cleanup
-
 echo "Setup documents"
 
 mkdir -p ~/Documents/Koji
@@ -102,7 +99,8 @@ mkdir -p ~/Library/Application\ Support/iTerm2/DynamicProfiles
 cp ./templates/iTerm/Profiles.json ~/Library/Application\ Support/iTerm2/DynamicProfiles
 sudo cp ./templates/iTerm/com.googlecode.iterm2.plist ~/Library/Preferences/com.googlecode.iterm2.plist
 
-brew cleanup
+chmod 755 /usr/local/share/zsh
+chmod 755 /usr/local/share/zsh/site-functions
 
 echo "Setting some Mac settings..."
 
@@ -270,5 +268,7 @@ defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
 defaults write com.apple.dock mru-spaces -bool false
 
 killall Finder
+
+brew cleanup
 
 echo "Installation complete."
