@@ -6,6 +6,10 @@ For your first day, you will have to install your Mac.
 
 > Before doing anything verify that you're using the last available version of OSX.
 
+## General instructions
+
+> If you received your mac already installed, you only need to add your SSH key located in `~/.ssh/id_rsa.pub` to your [Github account](https://github.com/account/ssh).
+
 You can following the instructions bellow:
 
 - Download this repository as a zip file
@@ -23,7 +27,11 @@ To have a consistent programming environment we provide a default configuration 
 
 You will need the [Settings Sync](https://marketplace.visualstudio.com/items?itemName=Shan.code-settings-sync) extension to synchronize your configuration with the default one.
 
-After installing the extenson you should use the following command: `Sync: Advanced Options > Ouvrir les paramètres` and enter `a90dc89436151831fd1bf8629080ade3` in the Gist id field. When it's done you can use `Sync: Download Settings`.
+After installing the extenson you should use the following commands:
+
+- `Sync: Advanced Options > Ouvrir les paramètres` and enter `a90dc89436151831fd1bf8629080ade3` in the Gist id field.
+- `Sync: Advanced Options > Download settings from Public gist`
+- `Sync: Download Settings`
 
 If everything goes fine, you will see a debug window opening. Wait for the completion message. The installation could take a while, but if you see some error this might be because one of the extension we use has been removed from the store. Ask your manager to check that with you.
 
