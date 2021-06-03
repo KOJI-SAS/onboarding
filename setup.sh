@@ -42,7 +42,7 @@ brew install tree
 brew install wget
 brew install trash
 brew install node
-brew install nvm
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
 brew install php@7.4
 curl -o- -L https://yarnpkg.com/install.sh | bash
 
@@ -71,7 +71,7 @@ cp -R /Volumes/Razer\ macOS\ 0.4.2/Razer\ macOS.app /Applications/
 
 echo "Install Development Apps"
 
-brew install visual-studio-code gitkraken postman tableplus iterm2 cyberduck sequel-pro the-unarchiver docker virtualbox vagrant
+brew install visual-studio-code gitkraken postman tableplus iterm2 cyberduck sequel-pro the-unarchiver homebrew/cask/docker virtualbox vagrant
 
 echo "Install Global Apps"
 
@@ -90,7 +90,7 @@ chsh -s /bin/zsh
 echo "Configure iTerm"
 
 cp ./templates/.zshrc ~/.zshrc
-mkdir -p "~/Library/Application\ Support/iTerm2/DynamicProfiles"
+mkdir -p ~/Library/Application\ Support/iTerm2/DynamicProfiles
 cp ./templates/iTerm/Profiles.json ~/Library/Application\ Support/iTerm2/DynamicProfiles
 
 brew cleanup
@@ -100,7 +100,7 @@ echo "Setting some Mac settings..."
 brew install dockutil
 dockutil --remove all
 
-cp templates/French-backtick.bundle /Library/Keyboard\ Layouts
+cp -R ./templates/French-backtick.bundle /Library/Keyboard\ Layouts
 
 #"Disabling system-wide resume"
 defaults write NSGlobalDomain NSQuitAlwaysKeepsWindows -bool false

@@ -2,7 +2,11 @@
 
 Welcome at KOJI.
 
-For your first day, you will have to install your Mac. You can following the instructions bellow:
+For your first day, you will have to install your Mac.
+
+> Before doing anything verify that you're using the last available version of OSX.
+
+You can following the instructions bellow:
 
 - Download this repository as a zip file
 - Extract the file to your desktop
