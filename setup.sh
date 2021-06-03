@@ -87,11 +87,20 @@ git clone git://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/cu
 echo "Setting ZSH as shell..."
 chsh -s /bin/zsh
 
+echo "Configure fonts"
+
+git clone https://github.com/powerline/fonts.git --depth=1
+cd fonts
+sh install.sh
+cd ..
+rm -rf fonts
+
 echo "Configure iTerm"
 
 cp ./templates/.zshrc ~/.zshrc
 mkdir -p ~/Library/Application\ Support/iTerm2/DynamicProfiles
 cp ./templates/iTerm/Profiles.json ~/Library/Application\ Support/iTerm2/DynamicProfiles
+sudo cp ./templates/iTerm/com.googlecode.iterm2.plist ~/Library/Preferences/com.googlecode.iterm2.plist
 
 brew cleanup
 
@@ -100,7 +109,9 @@ echo "Setting some Mac settings..."
 brew install dockutil
 dockutil --remove all
 
-cp -R ./templates/French-backtick.bundle /Library/Keyboard\ Layouts
+sudo cp -R ./templates/French-backtick.bundle /Library/Keyboard\ Layouts
+
+defaults write -g com.apple.swipescrolldirection -bool FALSE
 
 #"Disabling system-wide resume"
 defaults write NSGlobalDomain NSQuitAlwaysKeepsWindows -bool false
