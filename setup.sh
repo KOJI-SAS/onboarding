@@ -86,11 +86,13 @@ chsh -s /bin/zsh
 
 echo "Configure fonts"
 
-git clone https://github.com/powerline/fonts.git --depth=1
-cd fonts
+git clone https://github.com/powerline/fonts.git --depth=1 powerline
+cd powerline
 sh install.sh
 cd ..
-rm -rf fonts
+rm -rf powerline
+
+cp ./fonts/* $HOME/Library/Fonts
 
 echo "Configure iTerm"
 
