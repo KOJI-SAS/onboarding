@@ -70,6 +70,7 @@ mkdir -p ~/Documents/Personal
 echo "Install Development Apps"
 
 brew install visual-studio-code gitkraken postman tableplus iterm2 cyberduck sequel-pro the-unarchiver vagrant
+brew install --cask docker
 
 echo "Install Global Apps"
 
